@@ -23,7 +23,7 @@ const Contact = () => {
     setLoading(true);
 
     // Make the POST request to your backend
-    axios.post('http://localhost:5000/submit', formData)
+    axios.post('https://portfolio-backend-qqyw.onrender.com/submit', formData)
       .then(response => {
         console.log('Form submitted successfully:', response.data);
         toast.success(response.data.message || "Message sent successfully!");
