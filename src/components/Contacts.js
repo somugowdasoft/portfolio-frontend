@@ -1,8 +1,9 @@
 import axios from "axios";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { FaPhoneAlt, FaMailBulk } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { SiGmail } from "react-icons/si";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -111,7 +112,7 @@ const Contact = () => {
               disabled={loading}
               className="w-full px-4 py-2 bg-sky-700 text-white font-bold rounded-md hover:bg-sky-500 transition"
             >
-             {loading ? "Sending..." : "Send Message"}
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </motion.div>
@@ -125,13 +126,29 @@ const Contact = () => {
         >
           {/* Phone Icon and Number */}
           <div className="flex items-center space-x-4">
-            <FaPhoneAlt className="h-8 w-8 text-blue-500" />
-            <p className="text-lg font-medium text-sky-600">+91 7899343437</p>
+            <div className="flex space-x-6">
+              <a
+                href="https://github.com/somugowdasoft"
+                className="text-sky-600 hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithub size={24} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/somashekar-s-38b434214/"
+                className="text-sky-600 hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedinIn size={24} />
+              </a>
+            </div>
           </div>
 
           {/* Email Icon and Email Link */}
           <div className="flex items-center space-x-4">
-            <FaMailBulk className="h-8 w-8 text-blue-500" />
+            <SiGmail size={24} className="text-blue-500" />
             <a
               href="mailto:somugowda.work@gmail.com"
               className="text-lg font-medium text-blue-500 hover:underline"

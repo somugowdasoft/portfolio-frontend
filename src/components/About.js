@@ -1,5 +1,5 @@
 import { useState } from "react";
-import dev from "../assets/output-onlinepngtools.png"; // Replace with the actual path to your image
+import dev from "../assets/output-onlinepngtools.png";
 
 const About = () => {
     const [showMore, setShowMore] = useState(false);
@@ -17,20 +17,22 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 {/* Left Section: Description */}
                 <div className="text-center md:text-left">
-                    <p className="text-lg text-sky-500 leading-7 p-4">
+                    <p className="text-lg text-sky-500 leading-7 p-4 transition-all duration-300">
                         I’m a passionate Full-Stack Developer specializing in the MERN stack
                         (MongoDB, Express.js, React, and Node.js). I build highly scalable web
                         applications and enjoy solving complex problems with efficient solutions.
-                        {showMore && (
-                            <span>
-                                <br />
-                                <br />
-                                With expertise in both frontend and backend development, I deliver
-                                seamless user experiences. From dynamic web apps to RESTful APIs, I
-                                bring ideas to life with clean and scalable code. Let’s build
-                                something impactful together!
-                            </span>
-                        )}
+                        <span
+                            className={`block transition-opacity duration-300 ${
+                                showMore ? "opacity-100 max-h-96" : "opacity-0 max-h-0 overflow-hidden"
+                            }`}
+                        >
+                            <br />
+                            <br />
+                            With expertise in both frontend and backend development, I deliver
+                            seamless user experiences. From dynamic web apps to RESTful APIs, I
+                            bring ideas to life with clean and scalable code. Let’s build
+                            something impactful together!
+                        </span>
                     </p>
                     <button
                         onClick={handleToggle}
@@ -45,12 +47,11 @@ const About = () => {
                     <img
                         src={dev}
                         alt="Developer"
-                        className="shadow-lg w-full h-auto object-cover rounded-lg"
+                        className="w-full h-auto object-cover rounded-lg"
                     />
                 </div>
             </div>
         </section>
-
     );
 };
 

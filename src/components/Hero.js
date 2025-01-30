@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 const Hero = () => {
     return (
@@ -59,22 +59,16 @@ const Hero = () => {
                     transition={{ duration: 1, delay: 1 }}
                 >
                     <a
-                        href=" "
-                        className="p-4 text-white hover:text-blue-500 transition"
+                        href="https://github.com/somugowdasoft"
+                        className="p-4 text-blue-500 hover:text-white transition"
                     >
                         <FaGithub size={32} />
                     </a>
                     <a
-                        href=" "
-                        className="p-4 text-white hover:text-blue-500 transition"
+                        href="https://www.linkedin.com/in/somashekar-s-38b434214/"
+                        className="p-4 text-blue-500 hover:text-white transition"
                     >
                         <FaLinkedinIn size={32} />
-                    </a>
-                    <a
-                        href=" "
-                        className="p-4 text-white hover:text-blue-500 transition"
-                    >
-                        <FaTwitter size={32} />
                     </a>
                 </motion.div>
             </div>
