@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import TextChange from './TextChange';
 
 const Hero = () => {
     return (
@@ -20,27 +21,11 @@ const Hero = () => {
                 ></motion.div>
 
                 {/* Hero Heading with Animation */}
-                <motion.h1
-                    className="text-4xl md:text-4xl font-bold z-10"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                >
-                    Somashekar S.{' '}
-                    <motion.span
-                        className="text-sky-600"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{
-                            duration: 1,
-                            delay: 0.5,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                        }}
-                    >
-                        Full Stack Developer
-                    </motion.span>
-                </motion.h1>
+
+                <div className="flex items-center space-x-2 text-4xl md:text-4xl font-bold z-10 text-white">
+                    <span>Somashekar S.</span>
+                    <TextChange data={["I'm Full Stack Developer", "I'm Web Developer"]} />
+                </div>
 
                 {/* Animated Button */}
                 <motion.button

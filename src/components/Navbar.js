@@ -20,8 +20,18 @@ const Navbar = () => {
             <div className="max-w-screen-lg mx-auto flex justify-between items-center px-4 py-3">
                 {/* Logo */}
                 <div className="text-2xl font-bold">
-                    <button onClick={() => handleNavigation('hero')}>
-                        <img src={logo} alt="logo" width={32} height={32} className="border rounded" />
+                    <button
+                        onClick={() => handleNavigation('hero')}
+                        className="flex items-center gap-4"
+                    >
+                        <img
+                            src={logo}
+                            alt="logo"
+                            width={32}
+                            height={32}
+                            className="border rounded"
+                        />
+                        <span>Somashekar</span>
                     </button>
                 </div>
 

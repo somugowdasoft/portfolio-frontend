@@ -11,20 +11,17 @@ import Courses from './components/Courses';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from 'react';
-import { Toaster } from "react-hot-toast"
+import { Toaster } from "react-hot-toast";
 
-function SectionWrapper({ children, threshold = 0.2 }) {
+const SectionWrapper = ({ children }) => {
   const controls = useAnimation();
-  const { ref, inView } = useInView({
-    threshold,
-    triggerOnce: false, // Animates every time the section comes into view
-  });
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
 
   useEffect(() => {
     if (inView) {
       controls.start("visible");
     } else {
-      controls.start("hidden");
+      controls.start("hidden"); // Reset animation when out of view
     }
   }, [controls, inView]);
 
@@ -37,12 +34,12 @@ function SectionWrapper({ children, threshold = 0.2 }) {
         hidden: { opacity: 0, scale: 0.8 },
         visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
       }}
-      className="text-center"
+      className="text-center w-full"
     >
       {children}
     </motion.div>
   );
-}
+};
 
 function App() {
   return (
@@ -50,45 +47,25 @@ function App() {
       <Toaster position="top-right" />
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section (No animation) */}
       <section id="hero" className="min-h-screen flex items-center justify-center">
         <Hero />
       </section>
 
-      {/* About Section */}
-      <section id="about" className="min-h-screen flex items-center justify-center">
-        <SectionWrapper>
-          <About />
-        </SectionWrapper>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="min-h-screen flex items-center justify-center">
-        <SectionWrapper>
-          <Skills />
-        </SectionWrapper>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="min-h-screen flex items-center justify-center">
-        <SectionWrapper>
-          <Projects />
-        </SectionWrapper>
-      </section>
-
-      {/* Courses Section */}
-      <section id="courses" className="min-h-screen flex items-center justify-center">
-        <SectionWrapper>
-          <Courses />
-        </SectionWrapper>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="min-h-screen flex items-center justify-center">
-        <SectionWrapper>
-          <Contact />
-        </SectionWrapper>
-      </section>
+      {/* Wrapped Sections */}
+      {[
+        { id: "about", Component: About },
+        { id: "skills", Component: Skills },
+        { id: "projects", Component: Projects },
+        { id: "courses", Component: Courses },
+        { id: "contact", Component: Contact },
+      ].map(({ id, Component }) => (
+        <section key={id} id={id} className="min-h-screen flex items-center justify-center">
+          <SectionWrapper>
+            <Component />
+          </SectionWrapper>
+        </section>
+      ))}
 
       <Footer />
     </div>

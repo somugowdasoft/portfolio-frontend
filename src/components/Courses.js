@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import udemyCertificate from '../assets/Screenshot 2025-01-27 134323.png';
+import udemyCertificate from '../assets/udemy.png';
 import guviCertificate from '../assets/GuviCertification.png';
 import { FaDownload } from "react-icons/fa";
 

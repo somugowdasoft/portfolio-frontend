@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa";
 import {
   SiTailwindcss, SiRedux, SiAxios, SiBootstrap, SiSass, SiExpress, SiJsonwebtokens,
-  SiMongodb, SiAuth0, SiPostman, SiFirebase, SiNextdotjs, SiSocketdotio, SiMysql
+  SiMongodb, SiAuth0, SiPostman, SiFirebase, SiSocketdotio, SiMysql
 } from "react-icons/si";
 
 const Skills = () => {
@@ -17,7 +17,6 @@ const Skills = () => {
     { name: "SCSS", icon: <SiSass className="text-pink-600" /> },
     { name: "JavaScript", icon: <FaReact className="text-yellow-400" /> },
     { name: "ReactJS", icon: <FaReact className="text-blue-400" /> },
-    { name: "Next.js", icon: <SiNextdotjs className="text-black" /> },
     { name: "Axios", icon: <SiAxios className="text-blue-600" /> },
     { name: "Redux", icon: <SiRedux className="text-purple-600" /> },
     { name: "Framer Motion", icon: <FaReact className="text-red-400" /> },
@@ -26,6 +25,7 @@ const Skills = () => {
     { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
     { name: "Express", icon: <SiExpress className="text-gray-800" /> },
     { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+    { name: "Mongoose", icon: <SiMongodb className="text-green-500" /> },
     { name: "MySQL", icon: <SiMysql className="text-blue-500" /> },
     { name: "JWT", icon: <SiJsonwebtokens className="text-yellow-500" /> },
     { name: "Auth0", icon: <SiAuth0 className="text-red-500" /> },
@@ -41,13 +41,13 @@ const Skills = () => {
   return (
     <section id="skills" className="flex flex-col items-center p-8">
       <h1 className="text-4xl font-bold text-center text-white mb-8">My Skills</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 w-full max-w-5xl">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 w-full max-w-6xl">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center p-4 bg-white border rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+            className="flex flex-col items-center justify-center p-2  border rounded-lg shadow-lg hover:shadow-xl transition-shadow"
           >
-            <div className="text-4xl mb-4">{skill.icon}</div>
+            <div className="text-2xl mb-2">{skill.icon}</div>
             <h2 className="text-lg font-semibold text-sky-500">{skill.name}</h2>
           </div>
         ))}
