@@ -92,7 +92,7 @@ const Projects = () => {
             {
                 name: "MERN Ecommerce App",
                 image: `${images.mernEcommerce}`,
-                description: "The MERN E-Commerce Fashion World is a full-stack web application for seamless online shopping. Built with the MERN stack (MongoDB, Express.js, React.js, Node.js), it uses Redux for state management and JWT for secure authentication. Users can browse products, add items to the cart, place orders, and make secure payments via Razorpay.",
+                description: "The MERN E-Commerce Fashion World is a full-stack web application for seamless online shopping. it uses Redux for state management and JWT for secure authentication. Users can browse products, add items to the cart, place orders, and make secure payments via Razorpay.",
                 tags: ["MongoDB", "Express", "React", "Node.js", "Redux", "Razorpay"],
                 links: ["https://github.com/somugowdasoft/mern-ecommerce-frontend", "https://github.com/somugowdasoft/mern-ecommerce-backend", "https://ecommerce-fashion-world.netlify.app/"]
             },

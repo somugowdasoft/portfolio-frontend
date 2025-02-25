@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub
+  FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaMoneyCheckAlt 
 } from "react-icons/fa";
 import {
   SiTailwindcss, SiRedux, SiAxios, SiBootstrap, SiSass, SiExpress, SiJsonwebtokens,
@@ -31,6 +31,7 @@ const Skills = () => {
     { name: "Auth0", icon: <SiAuth0 className="text-red-500" /> },
     { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
     { name: "Socket.io", icon: <SiSocketdotio className="text-gray-500" /> },
+    { name: "Razorpay", icon: <FaMoneyCheckAlt  className="text-red-400" /> },
 
     // Tools
     { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
