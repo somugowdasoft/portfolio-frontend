@@ -28,13 +28,20 @@ const Hero = () => {
                 </div>
 
                 {/* Animated Button */}
-                <motion.button
-                    className="mt-12 px-6 py-3 border-2 border-sky-600 text-sky-600 font-bold rounded animate-pulse hover:bg-accent hover:text-white transition z-10"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                <a
+                    href="https://drive.google.com/file/d/1Ee_FiLNaMr-ND8ws_0fXOeSnm3Bv_xiN/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
-                    Read the CV
-                </motion.button>
+                    <motion.button
+                        className="mt-12 px-6 py-3 border-2 border-sky-600 text-sky-600 font-bold rounded animate-pulse hover:bg-accent hover:text-white transition z-10"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        Read the CV
+                    </motion.button>
+                </a>
+
 
                 {/* Social Links */}
                 <motion.div
