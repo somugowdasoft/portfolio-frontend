@@ -23,7 +23,7 @@ const Skills = () => {
 
     // Backend
     { name: "Node.js", icon: <FaNodeJs className="text-green-600" /> },
-    { name: "Express", icon: <SiExpress className="text-gray-800" /> },
+    { name: "Express", icon: <SiExpress className="text-white" /> },
     { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
     { name: "Mongoose", icon: <SiMongodb className="text-green-500" /> },
     { name: "MySQL", icon: <SiMysql className="text-blue-500" /> },
@@ -36,7 +36,7 @@ const Skills = () => {
     // Tools
     { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
     { name: "Git", icon: <FaGitAlt className="text-red-600" /> },
-    { name: "GitHub", icon: <FaGithub className="text-gray-900" /> },
+    { name: "GitHub", icon: <FaGithub className="text-white" /> },
   ];
 
   return (
