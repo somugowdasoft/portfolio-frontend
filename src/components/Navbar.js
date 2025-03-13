@@ -1,6 +1,16 @@
-import React, { useState } from 'react';
-import { FaHome, FaUser, FaTools, FaFolderOpen, FaCertificate, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa'
-import logo from '../assets/logo.jpg';
+import React, { useState } from "react";
+import {
+    FaHome,
+    FaUser,
+    FaTools,
+    FaFolderOpen,
+    FaCertificate,
+    FaEnvelope,
+    FaBriefcase,
+    FaBars,
+    FaTimes,
+} from "react-icons/fa";
+import logo from "../assets/logo.jpg";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,65 +20,61 @@ const Navbar = () => {
     const handleNavigation = (id) => {
         const section = document.getElementById(id);
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-            setIsOpen(false); // Close the menu after navigation
+            section.scrollIntoView({ behavior: "smooth" });
+            setIsOpen(false); // Close menu after clicking a link (on mobile)
         }
     };
 
     return (
-        <nav className="fixed top-0 w-full text-white shadow-lg z-50">
+        <nav className="fixed top-0 w-full bg-gray-900 text-white shadow-lg z-50">
             <div className="max-w-screen-lg mx-auto flex justify-between items-center px-4 py-3">
                 {/* Logo */}
-                <div className="text-2xl font-bold">
-                    <button
-                        onClick={() => handleNavigation('hero')}
-                        className="flex items-center gap-4"
-                    >
-                        <img
-                            src={logo}
-                            alt="logo"
-                            width={32}
-                            height={32}
-                            className="border rounded"
-                        />
-                        <span>Somashekar</span>
-                    </button>
-                </div>
+                <button
+                    onClick={() => handleNavigation("hero")}
+                    className="flex items-center gap-2 text-xl font-bold whitespace-nowrap"
+                >
+                    <img
+                        src={logo}
+                        alt="logo"
+                        width={30}
+                        height={30}
+                        className="border rounded"
+                    />
+                    <span className="hidden lg:block">Somashekar</span>
+                </button>
 
                 {/* Hamburger Icon for Mobile */}
-                <div className="md:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
+                <button
+                    className="md:hidden text-2xl cursor-pointer"
+                    onClick={toggleMenu}
+                >
                     {isOpen ? <FaTimes /> : <FaBars />}
-                </div>
+                </button>
 
-                {/* Nav Links */}
+                {/* Navigation Menu */}
                 <ul
-                    className={`md:flex md:items-center md:gap-6 absolute md:static top-14 left-0 w-full text-white md:w-auto md:bg-transparent md:py-0 py-4 transition-all duration-300 ease-in ${isOpen ? 'block' : 'hidden'
+                    className={`absolute top-16 left-0 w-full bg-gray-900 md:static md:w-auto md:bg-transparent md:flex md:gap-6 md:items-center transition-all duration-300 ease-in ${isOpen ? "block" : "hidden md:flex"
                         }`}
                 >
-                    <li className="text-lg hover:text-sky-500 text-center md:text-left py-2 md:py-0 flex items-center gap-2">
-                        <FaHome />
-                        <button onClick={() => handleNavigation('hero')}>Home</button>
-                    </li>
-                    <li className="text-lg hover:text-sky-500 text-center md:text-left py-2 md:py-0 flex items-center gap-2">
-                        <FaUser />
-                        <button onClick={() => handleNavigation('about')}>About</button>
-                    </li>
-                    <li className="text-lg hover:text-sky-500 text-center md:text-left py-2 md:py-0 flex items-center gap-2">
-                        <FaTools />
-                        <button onClick={() => handleNavigation('skills')}>Skill</button>
-                    </li>
-                    <li className="text-lg hover:text-sky-500 text-center md:text-left py-2 md:py-0 flex items-center gap-2">
-                        <FaFolderOpen />
-                        <button onClick={() => handleNavigation('projects')}>Project</button>
-                    </li>
-                    <li className="text-lg hover:text-sky-500 text-center md:text-left py-2 md:py-0 flex items-center gap-2">
-                        <FaCertificate />
-                        <button onClick={() => handleNavigation('courses')}>Certificate</button>
-                    </li>
-                    <li className="text-lg hover:text-sky-500 text-center md:text-left py-2 md:py-0 flex items-center gap-2">
-                        <FaEnvelope />
-                        <button onClick={() => handleNavigation('contact')}>Contact</button>
-                    </li>
+                    {[
+                        { id: "hero", icon: <FaHome />, text: "Home" },
+                        { id: "about", icon: <FaUser />, text: "About" },
+                        { id: "skills", icon: <FaTools />, text: "Skills" },
+                        { id: "experience", icon: <FaBriefcase />, text: "Experience" },
+                        { id: "projects", icon: <FaFolderOpen />, text: "Projects" },
+                        { id: "courses", icon: <FaCertificate />, text: "Certificate" },
+                        { id: "contact", icon: <FaEnvelope />, text: "Contact" },
+                    ].map((item) => (
+                        <li
+                            key={item.id}
+                            className="text-lg hover:text-sky-500 text-center md:text-left py-2 md:py-0 flex flex-col items-center gap-1 px-4 md:px-0"
+                        >
+                            {item.icon}
+                            <button onClick={() => handleNavigation(item.id)}>
+                                {item.text}
+                            </button>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </nav>

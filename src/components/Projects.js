@@ -106,10 +106,10 @@ const Projects = () => {
     ];
 
     return (
-        <div className="container max-w-screen-lg mx-auto flex flex-col lg:flex-row">
+        <div className="container max-w-screen-lg mx-auto flex flex-col lg:flex-row mt-8">
             {/* Sidebar */}
             <aside className="w-full md:w-1/3 lg:w-1/4 shadow-lg p-6 mb-6 lg:mb-0 rounded-lg">
-                <h2 className="text-xl mb-6 text-white">Project Categories</h2>
+                <h2 className="text-xl mb-6 text-white">Categories</h2>
                 <ul className="space-y-4">
                     {categories.map((category) => (
                         <li

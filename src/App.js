@@ -12,6 +12,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from 'react';
 import { Toaster } from "react-hot-toast";
+import Experience from './components/Experience';
 
 const SectionWrapper = ({ children }) => {
   const controls = useAnimation();
@@ -56,6 +57,7 @@ function App() {
       {[
         { id: "about", Component: About },
         { id: "skills", Component: Skills },
+        { id: "experience", Component: Experience },
         { id: "projects", Component: Projects },
         { id: "courses", Component: Courses },
         { id: "contact", Component: Contact },
