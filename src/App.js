@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Navbar from './components/Navbar';
 import './App.css';
 import Hero from './components/Hero';
@@ -7,13 +9,14 @@ import Contact from './components/Contacts';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Courses from './components/Courses';
+import Experience from './components/Experience';
 
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from 'react';
 import { Toaster } from "react-hot-toast";
-import Experience from './components/Experience';
 
+// Animation wrapper component
 const SectionWrapper = ({ children }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
@@ -22,7 +25,7 @@ const SectionWrapper = ({ children }) => {
     if (inView) {
       controls.start("visible");
     } else {
-      controls.start("hidden"); // Reset animation when out of view
+      controls.start("hidden");
     }
   }, [controls, inView]);
 
@@ -44,33 +47,85 @@ const SectionWrapper = ({ children }) => {
 
 function App() {
   return (
-    <div className="text-white">
-      <Toaster position="top-right" />
-      <Navbar />
+    <Router>
+      <div className="text-white">
+        <Toaster position="top-right" />
+        <Navbar />
 
-      {/* Hero Section (No animation) */}
-      <section id="hero" className="min-h-screen flex items-center justify-center">
-        <Hero />
-      </section>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <section className="min-h-screen flex items-center justify-center" id="hero">
+                <Hero />
+              </section>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <section className="min-h-screen flex items-center justify-center" id="about">
+                <SectionWrapper>
+                  <About />
+                </SectionWrapper>
+              </section>
+            }
+          />
+          <Route
+            path="/skills"
+            element={
+              <section className="min-h-screen flex items-center justify-center" id="skills">
+                <SectionWrapper>
+                  <Skills />
+                </SectionWrapper>
+              </section>
+            }
+          />
+          <Route
+            path="/experience"
+            element={
+              <section className="w-full min-h-screen flex items-center justify-center" id="experience">
+                <SectionWrapper>
+                  <Experience />
+                </SectionWrapper>
+              </section>
+            }
+          />
+          <Route
+            path="/projects"
+            element={
+              <section className="w-full min-h-screen flex items-start justify-center text-white px-4 py-8" id="projects">
+                <SectionWrapper>
+                  <Projects />
+                </SectionWrapper>
+              </section>
+            }
+          />
+          <Route
+            path="/courses"
+            element={
+              <section className="w-full min-h-screen flex items-center justify-center" id="courses">
+                <SectionWrapper>
+                  <Courses />
+                </SectionWrapper>
+              </section>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <section className="min-h-screen flex items-center justify-center" id="contact">
+                <SectionWrapper>
+                  <Contact />
+                </SectionWrapper>
+              </section>
+            }
+          />
+        </Routes>
 
-      {/* Wrapped Sections */}
-      {[
-        { id: "about", Component: About },
-        { id: "skills", Component: Skills },
-        { id: "experience", Component: Experience },
-        { id: "projects", Component: Projects },
-        { id: "courses", Component: Courses },
-        { id: "contact", Component: Contact },
-      ].map(({ id, Component }) => (
-        <section key={id} id={id} className="min-h-screen flex items-center justify-center">
-          <SectionWrapper>
-            <Component />
-          </SectionWrapper>
-        </section>
-      ))}
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
